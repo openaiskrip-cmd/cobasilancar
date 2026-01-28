@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button id="loginBtn" onclick="login()">Login</button>
+  <p id="status"></p>
+
+  <script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby9scXK17Y9A7YTE_ZwE4d3n3fQvly2DXkA0ZWw9xEc7ZQt4agUWlH1jDcmdr2YUQgldA/exec"; // Ganti URL Web App
+
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const statusEl = document.getElementById("status");
+      const btn = document.getElementById("loginBtn");
+
+      if (!username || !password) {
+        statusEl.textContent = "⚠️ Harap isi username dan password.";
+        return;
+      }
+
+      // Tampilkan loading
+      btn.disabled = true;
+      btn.textContent = "⏳ Loading...";
+      statusEl.textContent = "Sedang memproses login...";
+
+      fetch(`${WEB_APP_URL}?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            const now = new Date().getTime();
+            const oneDay = 24 * 60 * 60 * 1000; // 1 hari
+            localStorage.setItem("loginToken", "user_logged_in");
+            localStorage.setItem("loginTime", now);
+            localStorage.setItem("loginExpiry", now + oneDay);
+            statusEl.textContent = "✅ Login berhasil! Mengalihkan...";
+            setTimeout(() => {
+              window.location.href = "dashboard.html"; // Pindah ke dashboard
+            }, 500);
+          } else {
+            statusEl.textContent = "❌ Username atau password salah.";
+          }
+        })
+        .catch(err => {
+          statusEl.textContent = "⚠️ Error koneksi: " + err;
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.textContent = "Login";
+        });
+    }
+  </script>
+</body>
+</html>

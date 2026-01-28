@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Dashboard</h2>
+  <p>Selamat datang di dashboard! 🎉</p>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    const now = new Date().getTime();
+    const loginToken = localStorage.getItem("loginToken");
+    const loginExpiry = localStorage.getItem("loginExpiry");
+
+    // Cek apakah login valid
+    if (!loginToken || now > loginExpiry) {
+      localStorage.clear();
+      window.location.href = "coba.html";
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "coba.html";
+    }
+  </script>
+</body>
+</html>
