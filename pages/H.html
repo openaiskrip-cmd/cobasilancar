@@ -1321,8 +1321,8 @@
       </div>
 
       <!-- KANAN: Review -->
-      <div class="col-lg-4 mb-4">
-        <div class="card shadow" style="height: auto; display: flex; flex-direction: column;">
+      <div class="col-lg-4 mb-4" >
+        <div class="card shadow" style="height: 95vh; width: 96%; display: flex; position: sticky; top: 5vh;">
           
           <!-- HEADER -->
           <div class="card-header pb-0 p-3" style="flex: 0 0 auto;">
@@ -1330,7 +1330,7 @@
           </div>
 
           <!-- BODY (scrollable) -->
-          <div class="card-body px-3" style="flex: 1 1 auto; overflow-y: auto; font-size: 0.85rem;">
+          <div class="card-body px-3" id="fenomenaScroll" style="flex: 1 1 auto; overflow-y: auto; font-size: 0.85rem; max-height: 100%;">
             <div id="fenomenaList" style="font-size: 10px;">
               <!-- Isi fenomena akan dimasukkan lewat JS -->
             </div>
@@ -1592,6 +1592,31 @@
       localStorage.clear();
       window.location.href = "Login.html";
     }
+  </script>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const fenomena = document.getElementById('fenomenaScroll');
+
+    let isHover = false;
+
+    fenomena.addEventListener('mouseenter', () => {
+      isHover = true;
+      document.body.style.overflow = 'hidden'; // 🔒 kunci halaman
+    });
+
+    fenomena.addEventListener('mouseleave', () => {
+      isHover = false;
+      document.body.style.overflow = ''; // 🔓 buka halaman
+    });
+
+    fenomena.addEventListener('wheel', function (e) {
+      if (!isHover) return;
+
+      e.preventDefault();               // 🚫 stop page scroll
+      this.scrollTop += e.deltaY;       // ✅ paksa ke Fenomena
+    }, { passive: false });
+  });
   </script>
 </body>
 

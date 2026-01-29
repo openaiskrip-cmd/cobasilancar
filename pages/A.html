@@ -74,7 +74,7 @@
             </div>
             <div>
               <span class="nav-link-text ms-1">A. Pertanian, Kehutanan,</span><br>
-              <span class="nav-link-text ms-1">dan Perikanann</span>
+              <span class="nav-link-text ms-1">dan Perikanan</span>
             </div>
           </a>
         </li>
@@ -799,7 +799,7 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Grafik Produksi Tanaman Pangan (Dinas)</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chart_produksi_tanam_pangan" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
@@ -808,6 +808,7 @@
               </div>
             </div>
           </div>
+          <br>
           <div class="row">
             <!-- KIRI: Chart Produksi -->
             <div class="">
@@ -815,7 +816,7 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Grafik Produktivitas Tanaman Pangan (Dinas)</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chart_produktivitas_tanam_pangan" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
@@ -2450,8 +2451,8 @@
       </div>
 
       <!-- KANAN: Review -->
-      <div class="col-lg-4 mb-4">
-        <div class="card shadow" style="height: auto; display: flex; flex-direction: column;">
+      <div class="col-lg-4 mb-4" >
+        <div class="card shadow" style="height: 95vh; width: 96%; display: flex; position: sticky; top: 5vh;">
           
           <!-- HEADER -->
           <div class="card-header pb-0 p-3" style="flex: 0 0 auto;">
@@ -2459,7 +2460,7 @@
           </div>
 
           <!-- BODY (scrollable) -->
-          <div class="card-body px-3" style="flex: 1 1 auto; overflow-y: auto; font-size: 0.85rem;">
+          <div class="card-body px-3" id="fenomenaScroll" style="flex: 1 1 auto; overflow-y: auto; font-size: 0.85rem; max-height: 100%;">
             <div id="fenomenaList" style="font-size: 10px;">
               <!-- Isi fenomena akan dimasukkan lewat JS -->
             </div>
@@ -2722,6 +2723,33 @@
       window.location.href = "Login.html";
     }
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const fenomena = document.getElementById('fenomenaScroll');
+
+    let isHover = false;
+
+    fenomena.addEventListener('mouseenter', () => {
+      isHover = true;
+      document.body.style.overflow = 'hidden'; // 🔒 kunci halaman
+    });
+
+    fenomena.addEventListener('mouseleave', () => {
+      isHover = false;
+      document.body.style.overflow = ''; // 🔓 buka halaman
+    });
+
+    fenomena.addEventListener('wheel', function (e) {
+      if (!isHover) return;
+
+      e.preventDefault();               // 🚫 stop page scroll
+      this.scrollTop += e.deltaY;       // ✅ paksa ke Fenomena
+    }, { passive: false });
+  });
+  </script>
+
+
 </body>
 
 </html>
