@@ -484,8 +484,8 @@
             <div class="ms-3">
               <label for="yearDropdown" class="form-label">Pilih Tahun</label>
               <select id="yearDropdown" class="form-select  form-select-lg pe-5">
-                <!-- <option value="2023">2023</option>
-                <option value="2024">2024</option> -->
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
                 <option value="2025">2025</option>
                 <option value="2025">2026</option>
                 <option value="2025">2027</option>
@@ -1019,7 +1019,7 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Grafik Produksi Padi dan Palawija</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chart_padi_palawija" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
@@ -1033,7 +1033,7 @@
         <div class="container-fluid py-4">
           <h4>A.1. Pertanian, Peternakan, Perburuan dan Jasa Pertanian</h4>
           <h5 style="display: inline;">A.1.b. Pertumbuhan Produksi </h5>
-          <h5 style="color: rgb(3, 203, 3); display: inline;">Tanaman Hortikultura Semusim </h5>
+          <h5 style="color: rgb(3, 203, 3); display: inline;">Tanaman Hortikultura Semusim (SBS) </h5>
           <h5 style="display: inline;">Periode Ini:</h5>
           <div class="row">
             <div class="col-12">
@@ -1221,9 +1221,9 @@
             <div class="">
               <div class="card shadow h-100">
                 <div class="card-header pb-0 p-3">
-                  <h6 class="mb-0">Grafik Produksi Tanaman Hortikultura Semusim</h6>
+                  <h6 class="mb-0">Grafik Produksi Tanaman Hortikultura Semusim (SBS)</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chart_produksi_horti_semusim" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
@@ -1237,7 +1237,7 @@
         <div class="container-fluid py-4">
           <h4>A.1. Pertanian, Peternakan, Perburuan dan Jasa Pertanian</h4>
           <h5 style="display: inline;">A.1.d. Pertumbuhan Produksi </h5>
-          <h5 style="color: rgb(3, 203, 3); display: inline;">Tanaman Hortikultura Tahunan dan Lainnya </h5>
+          <h5 style="color: rgb(3, 203, 3); display: inline;">Tanaman Hortikultura Tahunan dan Lainnya (BST)</h5>
           <h5 style="display: inline;">Periode Ini:</h5>
           <div class="row">
             <div class="col-12">
@@ -1427,7 +1427,7 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Grafik Produksi BST</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chart_produksi_horti_tahunan" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
@@ -1441,7 +1441,7 @@
         <div class="container-fluid py-4">
           <h4>A.1. Pertanian, Peternakan, Perburuan dan Jasa Pertanian</h4>
           <h5 style="display: inline;">A.1.e. Pertumbuhan Produksi </h5>
-          <h5 style="color: rgb(3, 203, 3); display: inline;">Perkebunan Tahunan </h5>
+          <h5 style="color: rgb(3, 203, 3); display: inline;">Perkebunan Tahunan (Sawit)</h5>
           <h5 style="display: inline;">Periode Ini:</h5>
           <div class="row">
             <div class="col-12">
@@ -1631,7 +1631,211 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Grafik Produksi Sawit</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
+                  <canvas id="chart_produksi_perkebunan_sawit" style="height: 100% !important;" 
+                    data-labels=""
+                    data-values="">
+                  </canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid py-4">
+          <h4>A.1. Pertanian, Peternakan, Perburuan dan Jasa Pertanian</h4>
+          <h5 style="display: inline;">A.1.e. Pertumbuhan Produksi </h5>
+          <h5 style="color: rgb(3, 203, 3); display: inline;">Perkebunan Tahunan </h5>
+          <h5 style="display: inline;">(Dinas) Periode Ini:</h5>
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card" id="qtq_perkebunan_sawit-card">
+                    <!-- Mask dihapus agar warna background bisa diganti -->
+                    <div class="card-body p-3 position-relative">
+                      <div class="row">
+                        <div class="col-8 text-start">
+                          <h5 class="text-white font-weight-bolder mb-0 mt-3">
+                            <strong id="qtq_perkebunan_sawit">-</strong>
+                          </h5>
+                          <span class="text-white text-sm">Q to Q</span>
+                        </div>
+                        <div class="col-4">
+                          <div class="dropdown text-end mb-6">
+                            <a href="javascript:;" class="cursor-pointer" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa fa-ellipsis-h text-white"></i>
+                            </a>
+                            <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card" id="yoy_perkebunan_sawit-card">
+                    <!-- Mask dihapus agar warna background bisa diganti -->
+                    <div class="card-body p-3 position-relative">
+                      <div class="row">
+                        <div class="col-8 text-start">
+                          <h5 class="text-white font-weight-bolder mb-0 mt-3">
+                            <strong id="yoy_perkebunan_sawit">-</strong>
+                          </h5>
+                          <span class="text-white text-sm">Y on Y</span>
+                        </div>
+                        <div class="col-4">
+                          <div class="dropdown text-end mb-6">
+                            <a href="javascript:;" class="cursor-pointer" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa fa-ellipsis-h text-white"></i>
+                            </a>
+                            <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card" id="ctc_perkebunan_sawit-card">
+                    <!-- Mask dihapus agar warna background bisa diganti -->
+                    <div class="card-body p-3 position-relative">
+                      <div class="row">
+                        <div class="col-8 text-start">
+                          <h5 class="text-white font-weight-bolder mb-0 mt-3">
+                            <strong id="ctc_perkebunan_sawit">-</strong>
+                          </h5>
+                          <span class="text-white text-sm">C to C</span>
+                        </div>
+                        <div class="col-4">
+                          <div class="dropdown text-end mb-6">
+                            <a href="javascript:;" class="cursor-pointer" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa fa-ellipsis-h text-white"></i>
+                            </a>
+                            <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <h4>Angka PDRB Provinsi</h4>
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card" id="qtq_perkebunan_sawit_prov-card">
+                    <!-- Mask dihapus agar warna background bisa diganti -->
+                    <div class="card-body p-3 position-relative">
+                      <div class="row">
+                        <div class="col-8 text-start">
+                          <span class="text-white text-sm"></span>
+                          <h5 class="text-white font-weight-bolder mb-0 mt-3">
+                            <strong id="qtq_perkebunan_sawit_prov">-</strong>
+                          </h5>
+                          <span class="text-white text-sm">Q to Q (Provinsi)</span>
+                        </div>
+                        <div class="col-4">
+                          <div class="dropdown text-end mb-6">
+                            <a href="javascript:;" class="cursor-pointer" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa fa-ellipsis-h text-white"></i>
+                            </a>
+                            <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card" id="yoy_perkebunan_sawit_prov-card">
+                    <!-- Mask dihapus agar warna background bisa diganti -->
+                    <div class="card-body p-3 position-relative">
+                      <div class="row">
+                        <div class="col-8 text-start">
+                          <span class="text-white text-sm"></span>
+                          <h5 class="text-white font-weight-bolder mb-0 mt-3">
+                            <strong id="yoy_perkebunan_sawit_prov">-</strong>
+                          </h5>
+                          <span class="text-white text-sm">Y on Y (Provinsi)</span>
+                        </div>
+                        <div class="col-4">
+                          <div class="dropdown text-end mb-6">
+                            <a href="javascript:;" class="cursor-pointer" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa fa-ellipsis-h text-white"></i>
+                            </a>
+                            <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="card" id="ctc_perkebunan_sawit_prov-card">
+                    <!-- Mask dihapus agar warna background bisa diganti -->
+                    <div class="card-body p-3 position-relative">
+                      <div class="row">
+                        <div class="col-8 text-start">
+                          <span class="text-white text-sm"></span>
+                          <h5 class="text-white font-weight-bolder mb-0 mt-3">
+                            <strong id="ctc_perkebunan_sawit_prov">-</strong>
+                          </h5>
+                          <span class="text-white text-sm">C to C (Provinsi)</span>
+                        </div>
+                        <div class="col-4">
+                          <div class="dropdown text-end mb-6">
+                            <a href="javascript:;" class="cursor-pointer" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa fa-ellipsis-h text-white"></i>
+                            </a>
+                            <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                              <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <!-- Grafik Produksi -->
+          <div class="row">
+            <!-- KIRI: Chart Produksi -->
+            <div class="">
+              <div class="card shadow h-100">
+                <div class="card-header pb-0 p-3">
+                  <h6 class="mb-0">Grafik Produksi Sawit</h6>
+                </div>
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chart_produksi_perkebunan_sawit" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
@@ -1835,7 +2039,7 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Grafik Ternak yang dipotong (Dinas)</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chart_peternakan_dinas" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
@@ -2039,7 +2243,7 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Grafik Ternak yang dipotong (Dinas)</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chart_peternakan_bps" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
@@ -2438,7 +2642,7 @@
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Grafik Produksi Tanaman Pangan</h6>
                 </div>
-                <div class="card-body p-3" style="height: 300px;">
+                <div class="card-body p-3" style="height: 280px;">
                   <canvas id="chartProduksi" style="height: 100% !important;" 
                     data-labels=""
                     data-values="">
