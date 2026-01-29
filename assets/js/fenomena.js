@@ -38,24 +38,49 @@ function loadFenomena() {
       }
 
       items.forEach(item => {
+
+        // 1️⃣ Buat card
         const card = document.createElement("div");
         card.className = "card mb-2 text-white shadow-sm";
         card.style.padding = "6px";
+        card.style.fontSize = "10px";
 
+        // 2️⃣ Tentukan warna berdasarkan sentimen
         const sentiment = item.sentimen?.toLowerCase() || "";
+        card.style.backgroundColor =
+          sentiment === "positif" ? "#198754" :
+          sentiment === "negatif" ? "#dc3545" :
+          "#6c757d";
 
-        card.style.backgroundColor = sentiment === "positif" ? "#198754"
-                                : sentiment === "negatif" ? "#dc3545"
-                                : "#6c757d"; // Abu-abu jika netral/tidak diketahui
-        card.style.fontSize = "10px";  
+        // 3️⃣ Buat judul (yang bisa diklik)
+        const title = document.createElement("h6");
+        title.innerText = item.judul;
+        title.style.cursor = "pointer";
+        title.style.fontSize = "12px";
+        title.className = "mb-1 text-white";
 
-        card.innerHTML = `
-          <h6 class="mb-1 text-white" style="font-size: 12px;">${item.judul}</h6>
-          <!-- <small><strong>${item.periode}</strong> | ${item.mediaMassa || ""}</small> -->
-        `;
+        // 4️⃣ EVENT KLIK JUDUL
+        title.addEventListener("click", () => {
 
+          // Isi judul modal
+          document.getElementById("beritaModalTitle").innerText = item.judul;
+
+          // Isi berita modal
+          document.getElementById("beritaModalBody").innerText =
+            item.isi || "Isi berita tidak tersedia.";
+
+          // Tampilkan modal
+          const modal = new bootstrap.Modal(
+            document.getElementById("beritaModal")
+          );
+          modal.show();
+        });
+
+        // 5️⃣ Susun card
+        card.appendChild(title);
         fenomenaList.appendChild(card);
       });
+
     })
     .catch(err => {
       fenomenaList.innerHTML = "<p class='text-danger'>Gagal memuat data.</p>";
