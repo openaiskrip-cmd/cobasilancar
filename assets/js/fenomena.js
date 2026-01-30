@@ -1,4 +1,4 @@
-const BASE_URLF = "https://script.google.com/macros/s/AKfycbzxmBWJ0jjfTCJQy__r_LuOJJ-PDsupFr7JhCwBJmJv30OcXvbkF-tuAsOQTvb6Ja7Gqg/exec";
+const BASE_URLF = "https://script.google.com/macros/s/AKfycbxaTHhQQC-KItqOYn1So29VI8HrzfDMjqy4GM564VGx3CTG3u6_pMgtbeiZWVp9xHmx8Q/exec";
 
 // Kategori tetap per halaman
 const fixedKategori = document.body.dataset.kategori || "A";
