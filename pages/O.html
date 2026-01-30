@@ -503,30 +503,49 @@
                 <option value="TW4">Triwulan IV</option>
               </select>
             </div>
+
             <li>
-              <div class="ms-7"></div>
+              <div class="ms-5"></div>
             </li>
 
             <div style="display: flex; justify-content: center; margin-top: 20px;">
-              <button onclick="downloadExcel()" 
-                      style="
-                        font-size: 14px;
-                        padding: 10px 10px;
-                        width: 100px;
-                        height: 60px;
-                        background-color: #4c56af;
-                        color: white;
-                        border: none;
-                        border-radius: 10px;
-                        cursor: pointer;
-                      ">
-                Download Fenomena
-              </button>
+              <a
+                href="https://docs.google.com/spreadsheets/d/1_4xFAftYoJVZX35tW3jgie8jDeXd8bpQER5VSWMZ2-E/export?format=xlsx"
+                target="_blank"
+                style="
+                  width: 110px;
+                  height: 60px;
+                  background-color: #4c56af;
+                  color: white;
+                  text-decoration: none;
+                  border-radius: 14px;
+                  cursor: pointer;
+
+                  /* ⬇️ INI KUNCI TENGAH */
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+
+                  font-size: 14px;
+                  font-weight: normal;
+                  line-height: 1.2;
+
+                  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+                  transition: background-color 0.25s ease, transform 0.2s ease;
+                "
+                onmouseover="this.style.backgroundColor='#6a74d6'; this.style.transform='translateY(-2px)'"
+                onmouseout="this.style.backgroundColor='#4c56af'; this.style.transform='translateY(0)'"
+              >
+                Download<br>Fenomena
+              </a>
             </div>
 
+
             <li>
-              <div class="ms-6"></div>
+              <div class="ms-5"></div>
             </li>
+
             <li class="nav-item d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
