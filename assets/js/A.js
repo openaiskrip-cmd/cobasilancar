@@ -58,6 +58,18 @@ const komoditasList = [
     charts: [
       { id: "chart_peternakan_bps", dataKey: "produksi" }
     ]
+  },
+  {
+    key: "ppi",
+    charts: [
+      { id: "chart_ppi", dataKey: "produksi" }
+    ]
+  },
+  {
+    key: "ppiNilai",
+    charts: [
+      { id: "chart_ppiNilai", dataKey: "produksi" }
+    ]
   }
 ];
 
